@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/pages/home_page.py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/pages/home_page.py" />
+              <option name="updatedContent" value="# Page Object for Home Page (after login)&#10;from selenium.webdriver.common.by import By&#10;&#10;class HomePage:&#10;    def __init__(self, driver):&#10;        self.driver = driver&#10;        self.success_indicator = (By.XPATH, &quot;//a[contains(text(), 'Logout')]&quot;)  # Example: Logout link&#10;&#10;    def is_logged_in(self):&#10;        return len(self.driver.find_elements(*self.success_indicator)) &gt; 0&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/pages/login_page.py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/pages/login_page.py" />
+              <option name="updatedContent" value="# Page Object for Login Page&#10;from selenium.webdriver.common.by import By&#10;&#10;class LoginPage:&#10;    def __init__(self, driver):&#10;        self.driver = driver&#10;        self.username_input = (By.ID, 'Username')&#10;        self.password_input = (By.ID, 'Password')&#10;        self.login_button = (By.XPATH, &quot;//button[@type='submit']&quot;)&#10;&#10;    def enter_username(self, username):&#10;        self.driver.find_element(*self.username_input).send_keys(username)&#10;&#10;    def enter_password(self, password):&#10;        self.driver.find_element(*self.password_input).send_keys(password)&#10;&#10;    def click_login(self):&#10;        self.driver.find_element(*self.login_button).click()&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/requirements.txt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/requirements.txt" />
+              <option name="updatedContent" value="selenium&#10;pytest&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tests/test_login.py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/tests/test_login.py" />
+              <option name="updatedContent" value="from selenium import webdriver&#10;from pages.login_page import LoginPage&#10;from pages.home_page import HomePage&#10;import pytest&#10;&#10;def test_login_success():&#10;    driver = webdriver.Chrome()&#10;    driver.get('http://www.saferailway.somee.com')&#10;    login_page = LoginPage(driver)&#10;    home_page = HomePage(driver)&#10;&#10;    login_page.enter_username('your_username')&#10;    login_page.enter_password('your_password')&#10;    login_page.click_login()&#10;&#10;    assert home_page.is_logged_in(), &quot;Login failed!&quot;&#10;    driver.quit()&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
